@@ -3,111 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wadssa Wacemberg | Engenharia de Software</title>
     <link rel="stylesheet" href="style.css">
-    <title>Wadssa Wacemberg | Landing Page</title>
 </head>
 <body>
-    <!--Cabeçalho-->
-    <header>
-        <img src="minha imagem.jpg" alt="Minha Imagem">
-        <h1>Wadssa Wacemberg</h1>
-        <p>Estudante de Ciências da Computação 👩‍💻 | Explorando o mundo da tecnologia e da criatividade 💡💻</p>
-    </header>
+    <div class="stars"></div>
 
-    <!--Navegação-->
-    <nav>
-        <a href="#sobre">Sobre Mim</a>
-        <a href="#interesses">Interesses</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#objetivos">Objetivos</a>
-        <a href="#mensagem">Mensagem da Alma</a>
-        <a href="#contato">Contato</a>
-    </nav>
-
-    <!--Conteúdo Principal-->
-    <main>
-        <!--Sobre mim-->
-        <section id="sobre">
-            <h2>💫 Sobre mim</h2>
-            <p>Olá! Eu sou a <strong>Wadssa</strong>, estudante de Ciências da Computação e apaixonada por tecnologia, 
-                inovação e aprendizado constante. 💻✨<br><br>
-                Atualmente, estou desenvolvendo minhas habilidades em <strong>HTML, CSS, Python, React e Django</strong>, 
-                com o objetivo de me tornar uma <strong>desenvolvedora fullstack</strong> e trabalhar com 
-                <strong>Inteligência Artificial</strong>. 🌍🚀<br><br>
-                Acredito que cada linha de código é uma oportunidade de criar algo novo e inspirar o mundo com soluções inteligentes e criativas. 💡❤️
-            </p>
+    <main class="bento-grid">
+        <section id="perfil" class="bento-item profile-card">
+            <div class="profile-header">
+                <img src="assets/img/230252371.jpeg" alt="Wadssa Wacemberg" class="avatar">
+                <div class="status-badge">Available for Projects</div>
+            </div>
+            <h1>Wadssa Wacemberg</h1>
+            <p class="role">Software Engineer & AI Architect</p>
+            <p class="bio">Traduzindo lógica complexa em impacto humano. Ciência da Computação @ Generation Brasil.</p>
         </section>
 
-        <!--Interesses-->
-        <section id="interesses">
-            <h2>🌟 Meus Interesses</h2>
-            <ul>
-                <li>Programação 🧑‍💻</li>
-                <li>Matemática 📐📏🔢</li>
-                <li>Machine Learning 🤖</li>
-                <li>Inglês 👩‍🎓</li>
-                <li>Música 🎶</li>
-                <li>Viagens 🌎</li>
-            </ul>
-        </section>
-
-        <!--Projetos-->
-        <section id="projetos">
-            <h2>🧠 Projetos</h2>
-            <div class="projetos-container">
-                <div class="projeto">
-                    <h3>🌍 Meu Primeiro Site</h3>
-                    <p>Site criado com HTML e CSS e JS desenvolvimento web.</p>
-                    <a href="https://familiasolidaria.netlify.app/doe/" target="_blank">Ver Projeto</a>
-                </div>
-                <div class="projeto">
-                    <h3>🤖 Mini IA em Python</h3>
-                    <p>Projeto de aprendizado de máquina simples usando Python para prever dados e aprender padrões.</p>
-                    <a href="https://690236d5111b420036636c0f--flourishing-parfait-27579b.netlify.app/" target="_blank">Ver Código</a>
-                </div>
+        <section id="sobre" class="bento-item skills-card">
+            <h3>🛠️ Core Stack</h3>
+            <div class="skill-tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Python</span>
+                <span class="tag">SQL</span>
+                <span class="tag">IA/ML</span>
             </div>
         </section>
 
-        <!--Objetivos-->
-        <section id="objetivos">
-            <h2>💭 Meus Objetivos</h2>
-            <p>Quero unir tecnologia e propósito. Meu sonho é trabalhar com Inteligência Artificial em empresas globais, 
-            contribuindo para soluções que melhorem a vida das pessoas. 🌍✨<br><br>
-            Estou me preparando para oportunidades remotas  e sigo estudando todos os dias para transformar esse sonho em realidade. 🚀</p>
+        <section class="bento-item mission-card">
+            <h3>🚀 Missão</h3>
+            <p>"A tecnologia só é inteligente se não deixar ninguém para trás."</p>
         </section>
 
-        <!--Mensagem da Alma-->
-        <section id="mensagem">
-            <h2>💫 Mensagem da Alma</h2>
-            <p>Acredito que programar é mais do que escrever códigos — é dar forma à energia da criação. 
-            Cada projeto que desenvolvo carrega minha intenção de inspirar e conectar. 🌸</p>
+        <section id="projetos" class="bento-item github-card">
+            <h3>🐈‍⬛ Biblioteca GitHub</h3>
+            <p>Acesse meus repositórios de Ciência da Computação e Fullstack.</p>
+            <a href="https://github.com/WadssaWacemberg" target="_blank" class="btn-secondary">GitHub ↗</a>
         </section>
 
-        <!--Contato-->
-        <section id="contato">
-            <h2>📬 Contato</h2>
-            <p>Email: <a href="mailto:wadssa@gmail.com">wadssa@gmail.com</a></p>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/wadssa-wacemberg-556a7a366/" target="_blank">Linkedin</a>
-                <a href="https://github.com/wadssa-arch" target="_blank">GitHub</a>
-                <a href="https://www.instagram.com/wadssaw/" target="_blank">Instagram</a>
+        <section id="contato" class="bento-item contact-card">
+            <h3>📬 Conexão</h3>
+            <div class="contact-links">
+                <a href="mailto:wadssa@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/wadssa-wacemberg/" target="_blank">LinkedIn</a>
             </div>
-        </section>
-
-        <!--Vídeo de Inspiração-->
-        <section>
-            <h2>🎥 Vídeo de Inspiração</h2>
-            <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/FI_ge8TZkmo?si=xk69em0X1vh7fNBv" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </section>
     </main>
 
-    <!--Rodapé-->
-    <footer>
-        <p>Feito com 🧡 em HTML e CSS | 2025</p>
-    </footer>
+    <section class="projetos-secao">
+        <h2 class="titulo-sessao">Projetos Técnicos</h2>
+        <div class="carrossel-window">
+            <div class="carrossel-track-infinite">
+                <div class="project-card-mini">
+                    <div class="card-image" style="background-image: url('assets/img/farmacia.jpg');"></div>
+                    <div class="card-content">
+                        <span class="projeto-tag">API REST com NestJS</span>
+                        <h3>CRUD Farmácia</h3>
+                        <p>Gestão de estoque modular com TypeScript e MySQL.</p>
+                        <div class="card-footer">
+                            <a href="https://github.com/WadssaWacemberg/CRUD_Farmacia" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-mini">
+                    <div class="card-image" style="background-image: url('assets/img/blog.png');"></div>
+                    <div class="card-content">
+                        <span class="projeto-tag">JWT & Auth</span>
+                        <h3>Blog Pessoal</h3>
+                        <p>API com segurança Bcrypt e documentação Swagger.</p>
+                        <div class="card-footer">
+                            <a href="https://github.com/WadssaWacemberg/blogpessoal" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-mini">
+                    <div class="card-image" style="background-image: url('assets/img/gamer.png');"></div>
+                    <div class="card-content">
+                        <span class="projeto-tag">NestJS & MySQL</span>
+                        <h3>Games World</h3>
+                        <p>Gerenciamento de produtos gamer com validação DTO.</p>
+                        <div class="card-footer">
+                            <a href="https://github.com/WadssaWacemberg/Projeto_Games_World" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card-mini">
+                    <div class="card-image" style="background-image: url('assets/img/farmacia.png');"></div>
+                    <div class="card-content">
+                        <span class="projeto-tag">API REST com NestJS</span>
+                        <h3>CRUD Farmácia</h3>
+                        <p>Gestão de estoque modular com TypeScript e MySQL.</p>
+                        <div class="card-footer">
+                            <a href="https://github.com/WadssaWacemberg/CRUD_Farmacia" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('mousemove', e => {
+            const cards = document.querySelectorAll('.bento-item, .project-card-mini');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            });
+        });
+    </script>
 </body>
 </html>
