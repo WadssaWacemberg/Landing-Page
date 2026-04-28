@@ -25,7 +25,7 @@ body::before {
     z-index: -2; animation: aurora 30s linear infinite;
 }
 
-@keyframes aurora { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes aurora { from { transform: rotate(0deg); } to { transform: rotate(60s); } }
 
 /* Grid & Items */
 .bento-grid {
@@ -40,9 +40,12 @@ body::before {
 }
 
 .bento-item { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
-.bento-item:hover, .project-card-mini:hover { border-color: var(--accent); transform: translateY(-5px); }
 
-/* Glow Mouse */
+.bento-item:hover { 
+    border-color: rgba(243, 0, 211, 0.5); 
+    box-shadow: 0 0 20px rgba(243, 0, 211, 0.1);
+}
+
 .bento-item::after, .project-card-mini::after {
     content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(243, 0, 211, 0.08), transparent 40%);
@@ -65,8 +68,8 @@ h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-
 .carrossel-window { width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
 
 .carrossel-track-infinite {
-    display: flex; gap: 20px; width: max-content;
-    animation: scroll-loop 25s linear infinite;
+    display: flex; gap: 10px; width: max-content;
+    animation: scroll-loop 35s linear infinite;
 }
 
 .carrossel-track-infinite:hover { animation-play-state: paused; }
@@ -77,11 +80,11 @@ h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-
 }
 
 /* Cards projetos com  Imagem */
-.project-card-mini { flex: 0 0 250px; display: flex; flex-direction: column; border-radius: 20px; }
+.project-card-mini { flex: 10 0 100px; display: flex; flex-direction: column; border-radius: 20px; }
 .card-image { 
-    height:160px; width: 100%; 
+    height:100px; width: 90%; 
     background-size: cover; background-position: center; 
-    border-bottom: 1px solid var(--border);
+    border-bottom: 10px solid var(--border);
 }
 .card-content { padding: 20px; }
 .projeto-tag { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; font-weight: bold; }
@@ -93,9 +96,15 @@ h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-
 }
 
 /* Tipografia  mini cards ptyhon javascript */
-h1 { font-size: 2.8rem; letter-spacing: -2px; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
 h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
 .avatar { width: 80px; height: 80px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--border); }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .tag { background: rgba(255, 255, 255, 0.05); padding: 6px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border); }
 .tag:hover { color: var(--accent); border-color: var(--accent); }
+ 
+.titulo-sessao {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    text-align: left;
+}
