@@ -1,3 +1,4 @@
+
 @charset "UTF-8";
 
 :root {
@@ -19,83 +20,139 @@ body {
     overflow-x: hidden;
 }
 
+
 body::before {
     content: ""; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
     background: radial-gradient(circle, rgba(243, 0, 211, 0.03) 0%, transparent 50%);
     z-index: -2; animation: aurora 30s linear infinite;
 }
 
-@keyframes aurora { from { transform: rotate(0deg); } to { transform: rotate(60s); } }
+@keyframes aurora { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-/* Grid & Items */
 .bento-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 20px; max-width: 1200px; margin: 0 auto;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto;
 }
 
 .bento-item, .project-card-mini {
-    background: var(--card); backdrop-filter: blur(25px);
-    border: 1px solid var(--border); border-radius: 24px;
-    position: relative; overflow: hidden; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--card); 
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--border); 
+    border-radius: 24px;
+    position: relative; 
+    overflow: hidden; 
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bento-item { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; }
 
-.bento-item:hover { 
-    border-color: rgba(243, 0, 211, 0.5); 
-    box-shadow: 0 0 20px rgba(243, 0, 211, 0.1);
-}
-
 .bento-item::after, .project-card-mini::after {
     content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(243, 0, 211, 0.08), transparent 40%);
+    background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(243, 0, 211, 0.15), transparent 40%);
     z-index: 1; pointer-events: none;
 }
 
-/* Classes de Posicionamento */
-.profile-card { grid-column: span 2; grid-row: span 2; }
-.project-featured, .github-card, .contact-card { grid-column: span 2; }
+.bento-item:hover, .project-card-mini:hover { 
+    border-color: rgba(243, 0, 211, 0.5); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(243, 0, 211, 0.1);
+}
 
-/* UI Elements */
-h1 { font-size: 2.8rem; letter-spacing: -2px; }
-h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
+
+.projetos-secao { 
+    max-width: 1200px; 
+    margin: 80px auto; 
+}
+
+
+.carrossel-window { 
+    width: 100%; 
+}
+
+.carrossel-track-infinite {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+    width: 100%;
+    animation: none; 
+}
+
+
+.project-card-mini { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+    
+}
+
+.card-image { 
+    height: 150px; 
+    background-size: cover; 
+    background-position: center; 
+    border-bottom: 1px solid var(--border);
+}
+
+.card-content { padding: 20px; }
+
+.card-content h3 { 
+    font-size: 1.1rem; 
+    margin: 10px 0 5px 0; 
+}
+
+.card-content p { 
+    font-size: 0.85rem; 
+    color: var(--dim); 
+    line-height: 1.5; 
+}
+
+
+.profile-card { grid-column: span 2; grid-row: span 2; }
+.github-card, .contact-card { grid-column: span 2; }
+
 .avatar { width: 80px; height: 80px; border-radius: 15px; border: 1px solid var(--border); margin-bottom: 15px; }
 .status-badge { font-size: 0.7rem; color: #00ffaa; background: rgba(0, 255, 170, 0.1); padding: 6px 14px; border-radius: 30px; margin-bottom: 15px; width: fit-content; }
 .tag { background: rgba(255, 255, 255, 0.05); padding: 6px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border); margin: 0 10px 10px 0; display: inline-block; }
 
-/* --- CARROSSEL INFINITO --- */
-.projetos-secao { max-width: 1200px; margin: 80px auto; overflow: hidden; }
-.carrossel-window { width: 100%; overflow: hidden; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
-
-.carrossel-track-infinite {
-    display: flex; gap: 10px; width: max-content;
-    animation: scroll-loop 35s linear infinite;
+.btn-repo { 
+    display: inline-block; 
+    margin-top: 15px; 
+    color: var(--accent); 
+    font-weight: bold; 
+    text-decoration: none; 
+    font-size: 0.8rem; 
+    transition: 0.3s;
 }
 
-.carrossel-track-infinite:hover { animation-play-state: paused; }
+.btn-repo:hover { letter-spacing: 1px; }
 
-@keyframes scroll-loop { 
-    0% { transform: translateX(0); } 
-    100% { transform: translateX(calc(-50% - 10px)); } 
+
+.links {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: rgba(231, 63, 209, 0.15);  
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin: 5px;
 }
 
-/* Cards projetos com  Imagem */
-.project-card-mini { flex: 10 0 100px; display: flex; flex-direction: column; border-radius: 20px; }
-.card-image { 
-    height:100px; width: 90%; 
-    background-size: cover; background-position: center; 
-    border-bottom: 10px solid var(--border);
+.links:hover {
+    background-color: var(--accent); 
+    transform: scale(1.05);
 }
-.card-content { padding: 20px; }
-.projeto-tag { font-size: 0.7rem; color: var(--accent); text-transform: uppercase; font-weight: bold; }
-.btn-repo { display: inline-block; margin-top: 15px; color: var(--text); font-weight: bold; text-decoration: none; border-bottom: 1px solid var(--accent); font-size: 0.8rem; }
 
+/* Responsividade */
 @media (max-width: 900px) {
     .bento-grid { grid-template-columns: 1fr; }
-    .bento-item { grid-column: span 1 !important; }
+    .profile-card, .github-card, .contact-card { grid-column: span 1; }
 }
-
-/* Tipografia  mini cards ptyhon javascript */
+/* Tipografia  mini cards */
 h1 { font-size: clamp(2rem, 5vw, 2.8rem); }
 h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 10px; }
 .avatar { width: 80px; height: 80px; border-radius: 15px; margin-bottom: 15px; border: 1px solid var(--border); }
@@ -103,8 +160,3 @@ h3 { color: var(--accent); font-size: 0.9rem; text-transform: uppercase; margin-
 .tag { background: rgba(255, 255, 255, 0.05); padding: 6px 12px; border-radius: 10px; font-size: 0.8rem; border: 1px solid var(--border); }
 .tag:hover { color: var(--accent); border-color: var(--accent); }
  
-.titulo-sessao {
-    margin-bottom: 40px;
-    font-size: 2rem;
-    text-align: left;
-}

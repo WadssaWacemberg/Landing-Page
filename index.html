@@ -8,14 +8,15 @@
 </head>
 <body>
     <div class="stars"></div>
+    <div id="teste"></div>
 
     <main class="bento-grid">
         <section id="perfil" class="bento-item profile-card">
             <div class="profile-header">
-                <img src="assets/img/230252371.jpeg" alt="Wadssa Wacemberg" class="avatar">
+                <img id="foto_unica_perfil" src="assets/img/230252371.jpeg" alt="Wadssa Wacemberg" class="avatar">
                 <div class="status-badge">Available for Projects</div>
             </div>
-            <h1>Wadssa Wacemberg</h1>
+            <h1 id="elemento_titulo">Wadssa Wacemberg</h1>
             <p class="role">Software Engineer & AI Architect</p>
             <p class="bio">Traduzindo lógica complexa em impacto humano. Ciência da Computação @ Generation Brasil.</p>
         </section>
@@ -40,14 +41,14 @@
         <section id="projetos" class="bento-item github-card">
             <h3>🐈‍⬛ Biblioteca GitHub</h3>
             <p>Acesse meus repositórios de Ciência da Computação e Fullstack.</p>
-            <a href="https://github.com/WadssaWacemberg" target="_blank" class="btn-secondary">GitHub ↗</a>
+            <a class="links" href="https://github.com/WadssaWacemberg" target="_blank" class="btn-secondary">GitHub ↗</a>
         </section>
 
         <section id="contato" class="bento-item contact-card">
             <h3>📬 Conexão</h3>
             <div class="contact-links">
-                <a href="mailto:wadssa@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/wadssa-wacemberg/" target="_blank">LinkedIn</a>
+                <a class="links" href="mailto:wadssa@gmail.com">Email</a>
+                <a class="links" href="https://www.linkedin.com/in/wadssa-wacemberg/" target="_blank">LinkedIn</a>
             </div>
         </section>
     </main>
@@ -63,7 +64,7 @@
                         <h3>Blog Pessoal</h3>
                         <p>API com segurança Bcrypt e documentação Swagger.</p>
                         <div class="card-footer">
-                            <a href="https://github.com/WadssaWacemberg/blogpessoal" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                            <a  class="links" href="https://github.com/WadssaWacemberg/blogpessoal" target="_blank" class="btn-repo">Código ↗</a>
                         </div>
                     </div>
                 </div>
@@ -75,7 +76,7 @@
                         <h3>Games World</h3>
                         <p>Gerenciamento de produtos gamer com validação DTO.</p>
                         <div class="card-footer">
-                            <a href="https://github.com/WadssaWacemberg/Projeto_Games_World" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                            <a class="links" href="https://github.com/WadssaWacemberg/Projeto_Games_World" target="_blank" class="btn-repo">Código ↗</a>
                         </div>
                     </div>
                 </div>
@@ -87,13 +88,13 @@
                         <h3>CRUD Farmácia</h3>
                         <p>Gestão de estoque modular com TypeScript e MySQL.</p>
                         <div class="card-footer">
-                            <a href="https://github.com/WadssaWacemberg/CRUD_Farmacia" target="_blank" class="btn-repo">CÓDIGO ↗</a>
+                            <a class="links" href="https://github.com/WadssaWacemberg/CRUD_Farmacia" target="_blank" class="btn-repo">Código ↗</a>
                         </div>
                     </div>
             </div>
         </div>
     </section>
-
+    <script src="assets/scripts.js/scripts..js"></script>
     <script>
         document.addEventListener('mousemove', e => {
             const cards = document.querySelectorAll('.bento-item, .project-card-mini');
