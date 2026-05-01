@@ -32,11 +32,3 @@ Para construir esta interface, foquei na separação de interesses e em uma expe
 3.  **Grid Adaptativa:** Seção de projetos técnica que se ajusta automaticamente ao tamanho da tela (Responsividade Mobile-First).
 4.  **Injeção de Conteúdo Dinâmico:** Mensagens de boas-vindas controladas programaticamente via JavaScript.
 
----🔧 Estrutura de Pastas
-.
-├── assets/
-│   ├── img/          # Imagens e ícones do projeto
-│   └── js/           # Scripts de lógica e interatividade
-├── style.css         # Estilização e animações Aurora
-├── index.html        # Estrutura principal
-└── README.md         # Documentação do projeto
