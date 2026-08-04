@@ -1,7 +1,7 @@
 # Wadssa Wacemberg
 
 > Software Engineer  
-> Building Inclusive Intelligence through Software Engineering, Cloud Computing and Artificial Intelligence.
+> Building Inclusive Intelligence ↙ through Software Engineering, Cloud Computing and Artificial Intelligence.
 
 > *"Technology is only intelligent when it leaves no one behind."*
 

@@ -190,6 +190,42 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.add("has-global-nav");
 
     }
+
+    const pageSequence = isPortuguese
+      ? [["Início", ""], ["Por que eu construo", "why-i-build/"], ["Inteligência Inclusiva", "inclusive-intelligence/"], ["Problemas que importam", "problems/"], ["Manifesto", "manifesto/"], ["Portfólio", "portfolio.html"], ["Currículo", "resume/"], ["Trabalhos", "work/"], ["Journal", "journal/"], ["Princípios", "principles/"], ["Aprendizado", "learning/"], ["Jornada", "journey/"]]
+      : [["Home", ""], ["Why I Build", "why-i-build/"], ["Inclusive Intelligence", "inclusive-intelligence/"], ["Problems I Care About", "problems/"], ["Manifesto", "manifesto/"], ["Portfolio", "portfolio.html"], ["Resume", "resume/"], ["Work", "work/"], ["Journal", "journal/"], ["Principles", "principles/"], ["Learning", "learning/"], ["Journey", "journey/"]];
+    const normalizedPath = path.endsWith("/index.html") ? path.slice(0, -10) : path;
+    const currentPageIndex = pageSequence.findIndex(([, route]) => {
+      const target = new URL(route, languageRoot).pathname.toLowerCase().replace(/index\.html$/, "");
+      return normalizedPath === target;
+    });
+    if (currentPageIndex > 0 && !document.body.classList.contains("case-page")) {
+      document.querySelectorAll(".book-next").forEach((navigation) => navigation.remove());
+      const previous = pageSequence[currentPageIndex - 1];
+      const next = pageSequence[(currentPageIndex + 1) % pageSequence.length];
+      const pageNavigation = document.createElement("nav");
+      pageNavigation.className = "page-turn container";
+      pageNavigation.setAttribute("aria-label", isPortuguese ? "Navegação entre páginas" : "Page navigation");
+      const createPageLink = (item, direction) => {
+        const link = document.createElement("a");
+        link.href = new URL(item[1], languageRoot).href;
+        link.className = `page-turn-link page-turn-${direction}`;
+        const label = document.createElement("span");
+        label.textContent = direction === "previous"
+          ? (isPortuguese ? "Página anterior" : "Previous page")
+          : (isPortuguese ? "Próxima página" : "Next page");
+        const arrow = document.createElement("strong");
+        arrow.className = "page-turn-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = direction === "previous" ? "←" : "→";
+        const title = document.createElement("b");
+        title.textContent = item[0];
+        link.append(label, arrow, title);
+        return link;
+      };
+      pageNavigation.append(createPageLink(previous, "previous"), createPageLink(next, "next"));
+      document.querySelector("main")?.insertAdjacentElement("afterend", pageNavigation);
+    }
   }
   if (!document.querySelector(".site-footer")) {
     const trigger = document.querySelector(".w-mark, .brand");
@@ -219,6 +255,16 @@ document.addEventListener("DOMContentLoaded", () => {
       ? "O problema não é a pessoa não entender o sistema. É o sistema que nunca foi feito para ela."
       : "The problem is not that a person cannot understand the system. It is that the system was never designed for them."
     philosophyDefinition.append(responsibility);
+  }
+  const humanitySection = document.querySelector(".home-humanity > div");
+  if (humanitySection && !humanitySection.querySelector(".physical-data")) {
+    const currentApplication = humanitySection.querySelector("p:nth-of-type(3)");
+    const physicalData = document.createElement("p");
+    physicalData.className = "physical-data";
+    physicalData.innerHTML = isPortuguese
+  ? '<span class="signature"> "𝐸𝑢 𝑒𝑛𝑡𝑒𝑛𝑑𝑜 𝑐𝑜𝑚𝑜 𝑜𝑠 𝑑𝑎𝑑𝑜𝑠 𝑣𝑖𝑎𝑗𝑎𝑚 𝑓í𝑠𝑖𝑐𝑎𝑚𝑒𝑛𝑡𝑒 𝑎𝑛𝑡𝑒𝑠 𝑑𝑒 𝑠𝑒 𝑡𝑜𝑟𝑛𝑎𝑟 𝑐ó𝑑𝑖𝑔𝑜."</span>'
+  : '<span class="signature"> "𝐼 𝑢𝑛𝑑𝑒𝑟𝑠𝑡𝑎𝑛𝑑 ℎ𝑜𝑤 𝑑𝑎𝑡𝑎 𝑡𝑟𝑎𝑣𝑒𝑙𝑠 𝑝ℎ𝑦𝑠𝑖𝑐𝑎𝑙𝑙𝑦 𝑏𝑒𝑓𝑜𝑟𝑒 𝑖𝑡 𝑒𝑣𝑒𝑟 𝑏𝑒𝑐𝑜𝑚𝑒𝑠 𝑐𝑜𝑑𝑒." </span>';
+    currentApplication?.insertAdjacentElement("beforebegin", physicalData);
   }
   if (coverActions && !coverActions.querySelector('[href*="why-i-build"]')) {
     const whyLink = document.createElement("a");
@@ -408,7 +454,12 @@ document.addEventListener("DOMContentLoaded", () => {
         link.href = new URL(previous[1], projectRoot).href;
         link.innerHTML = `<small>${isPortuguese ? "Anterior" : "Previous"}</small><strong>← ${previous[0]}</strong>`;
         sequence.append(link);
-      } else sequence.append(document.createElement("span"));
+      } else {
+        const link = document.createElement("a");
+        link.href = new URL("work/", languageRoot).href;
+        link.innerHTML = `<small>${isPortuguese ? "Anterior" : "Previous"}</small><strong>← ${isPortuguese ? "Trabalhos" : "Work"}</strong>`;
+        sequence.append(link);
+      }
       const all = document.createElement("a");
       all.className = "all-work";
       all.href = new URL("work/", languageRoot).href;
@@ -419,7 +470,12 @@ document.addEventListener("DOMContentLoaded", () => {
         link.href = new URL(next[1], projectRoot).href;
         link.innerHTML = `<small>${isPortuguese ? "Próximo" : "Next"}</small><strong>${next[0]} →</strong>`;
         sequence.append(link);
-      } else sequence.append(document.createElement("span"));
+      } else {
+        const link = document.createElement("a");
+        link.href = new URL("work/", languageRoot).href;
+        link.innerHTML = `<small>${isPortuguese ? "Próximo" : "Next"}</small><strong>${isPortuguese ? "Trabalhos" : "Work"} →</strong>`;
+        sequence.append(link);
+      }
       document.querySelector(".case-main")?.append(sequence);
     }
   }
